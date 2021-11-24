@@ -1,0 +1,21 @@
+.TodoInsert{
+  display: flex;
+  background-color: darkgray;
+}
+input{
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+  flex: 1;
+}
+button{
+  width: 9%;
+  background-color: gray;
+  color: white;
+  padding: 0px 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
