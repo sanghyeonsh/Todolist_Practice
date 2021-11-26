@@ -1,18 +1,22 @@
-// 할 일에 대한 정보를 렌더링해줌
-// 할 일의 완료 여부 토글
-// 할 일에 대한 정보가 들어있는 todos배열을
-// map을 이용하여 여러개의 TodoItem컴포넌트를 렌더링해줌
 import React from 'react';
-import './TodoCss/Item.css';
-const TodoItem = () => {
+import {MdCheckBoxOutlineBlank,MdCheckBox,MdRemoveCircleOutline} from 'react-icons/md';
+import cn from 'classnames';
+import './TodoCss/Item.scss';
+const TodoItem = ({todo, onRemove, onCheck}) => {
+  const {id, text, checked} = todo;
   return (
     <div className="TodoItem">
-      <div className="checkbox">
-        <div className="text">할 일</div>
+      <div className={cn("checkbox",{checked})} onClick={()=>onCheck(id)}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
       </div>
-      <div className="remove"></div>
+      <div className="remove" onClick={() => onRemove(id)}>
+        <MdRemoveCircleOutline />
+      </div>
     </div>
   );
 };
 
 export default TodoItem;
+
+// import cn 여러 종류의 값을 전달해야 하는 경우에 classnames를 사용해서 객체로 통째로 전달하기 위해 사용
